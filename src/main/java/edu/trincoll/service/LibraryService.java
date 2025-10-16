@@ -4,6 +4,8 @@ import edu.trincoll.model.Book;
 import edu.trincoll.model.BookStatus;
 import edu.trincoll.model.Member;
 import edu.trincoll.model.MembershipType;
+import edu.trincoll.policy.CheckoutPolicy;
+import edu.trincoll.policy.CheckoutPolicyFactory;
 import edu.trincoll.repository.BookRepository;
 import edu.trincoll.repository.MemberRepository;
 import org.springframework.stereotype.Service;
@@ -55,21 +57,9 @@ public class LibraryService {
         // TODO 2 (15 points): OCP Violation - This checkout limit logic violates Open-Closed Principle
         // Create a CheckoutPolicy interface with different implementations for each membership type
         // Use Strategy pattern instead of if-else statements
-        int maxBooks;
-        int loanPeriodDays;
-
-        if (member.getMembershipType() == MembershipType.REGULAR) {
-            maxBooks = 3;
-            loanPeriodDays = 14;
-        } else if (member.getMembershipType() == MembershipType.PREMIUM) {
-            maxBooks = 10;
-            loanPeriodDays = 30;
-        } else if (member.getMembershipType() == MembershipType.STUDENT) {
-            maxBooks = 5;
-            loanPeriodDays = 21;
-        } else {
-            throw new IllegalStateException("Unknown membership type");
-        }
+        CheckoutPolicy policy = CheckoutPolicyFactory.getCheckoutPolicy(member.getMembershipType());
+        int maxBooks = policy.getMaxBooks(); ;
+        int loanPeriodDays = policy.getLoanPeriodDays();
 
         if (member.getBooksCheckedOut() >= maxBooks) {
             return "Member has reached checkout limit";
