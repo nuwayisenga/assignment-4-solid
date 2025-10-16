@@ -21,9 +21,9 @@ import java.util.List;
  *
  * Team Members and Contributions:
  * - Gabriela Scavenius and Noella Uwayisenga: TODOs 1, 3, 4, 5, 6, 7, 8
- * - Chris Burns: TODO 2 (CheckoutPolicy)
+ * - Chris Burns: TODOs 2
  *
- * AI Tools Used: Claude (Anthropic)
+ * AI Tools Used: Claude (Anthr0pic)
  *
  * How AI Helped:
  * - Suggested Strategy pattern structure for checkout policies and late fee calculation

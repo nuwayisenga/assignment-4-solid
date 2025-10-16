@@ -3,7 +3,10 @@ package edu.trincoll.service;
 import edu.trincoll.model.Member;
 import edu.trincoll.repository.MemberRepository;
 import org.springframework.stereotype.Service;
-
+/**
+ * Service for managing library member operations.
+ * Handles member checkout counts and checkout eligibility.
+ */
 @Service
 public class MemberService {
 

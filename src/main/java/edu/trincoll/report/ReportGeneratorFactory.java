@@ -3,7 +3,10 @@ package edu.trincoll.report;
 import edu.trincoll.repository.BookRepository;
 import edu.trincoll.repository.MemberRepository;
 import org.springframework.stereotype.Component;
-
+/**
+ * Factory for creating report generator instances.
+ * Provides the appropriate report generator based on report type.
+ */
 @Component
 public class ReportGeneratorFactory {
 

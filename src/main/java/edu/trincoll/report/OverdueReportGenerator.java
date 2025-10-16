@@ -5,7 +5,10 @@ import edu.trincoll.repository.BookRepository;
 
 import java.time.LocalDate;
 import java.util.List;
-
+/**
+ * Report generator for overdue books.
+ * Generates a detailed report of all books past their due date.
+ */
 public class OverdueReportGenerator implements ReportGenerator {
 
     private final BookRepository bookRepository;
