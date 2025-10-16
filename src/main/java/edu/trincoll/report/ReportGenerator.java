@@ -1,0 +1,5 @@
+package edu.trincoll.report;
+
+public interface ReportGenerator {
+    String generateReport();
+}
